@@ -1,0 +1,19 @@
+include LICENCE RELEASE-NOTES AUTHORS
+include README.rst
+include electrum-sparks.conf.sample
+include electrum-sparks.desktop
+include *.py
+include electrum-sparks
+include contrib/requirements/requirements.txt
+include contrib/requirements/requirements-hw.txt
+recursive-include packages *.py
+recursive-include packages cacert.pem
+include icons.qrc
+graft debian
+graft icons
+
+graft electrum_sparks
+prune electrum_sparks/tests
+
+global-exclude __pycache__
+global-exclude *.py[co]

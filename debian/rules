@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=electrum-sparks
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_installchangelogs::
+	dh_installchangelogs -k RELEASE-NOTES
+
+override_dh_auto_build::
+	pyrcc5 icons.qrc -o electrum_sparks/gui/qt/icons_rc.py
+	dh_auto_build
+
+override_dh_auto_install::
+	dh_auto_install
+	mkdir -p debian/electrum-sparks/usr/bin \
+             debian/electrum-sparks/usr/share
+	cp -r debian/python3-electrum-sparks/usr/bin \
+       debian/electrum-sparks/usr
+	cp -r debian/python3-electrum-sparks/usr/share/applications \
+       debian/electrum-sparks/usr/share
+	cp -r debian/python3-electrum-sparks/usr/share/pixmaps \
+       debian/electrum-sparks/usr/share
+	mkdir -p debian/sparks-electrum/usr/bin \
+             debian/sparks-electrum/usr/share
+	mv debian/python3-electrum-sparks/usr/bin \
+       debian/sparks-electrum/usr
+	mv debian/python3-electrum-sparks/usr/share/applications \
+       debian/sparks-electrum/usr/share
+	mv debian/python3-electrum-sparks/usr/share/pixmaps \
+       debian/sparks-electrum/usr/share

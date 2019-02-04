@@ -1,0 +1,21 @@
+# If you want Sparks-Electrum to appear in a Linux app launcher ("start menu"), install this by doing:
+# sudo desktop-file-install electrum-sparks.desktop
+
+[Desktop Entry]
+Comment=Lightweight Sparkspay Client
+Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\" electrum-sparks %u"
+GenericName[en_US]=Sparks-Electrum
+GenericName=Sparks-Electrum
+Icon=electrum-sparks
+Name[en_US]=Electrum Sparkspay Wallet
+Name=Electrum Sparkspay Wallet
+Categories=Network;
+StartupNotify=false
+Terminal=false
+Type=Application
+MimeType=x-scheme-handler/sparkspay;
+Actions=Testnet;
+
+[Desktop Action Testnet]
+Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\" electrum-sparks --testnet %u"
+Name=Testnet mode
