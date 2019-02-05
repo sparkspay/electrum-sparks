@@ -1,0 +1,5 @@
+electrum-sparks (3.2.4~rc0) bionic; urgency=medium
+
+  * Port to ppa
+
+ -- Maintainer z3r0 m0r4k <mor4k@outlook.com>

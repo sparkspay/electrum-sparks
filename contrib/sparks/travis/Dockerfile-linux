@@ -1,0 +1,7 @@
+FROM debian:stretch-slim
+LABEL maintainer "z3r0 m0r4k <mor4k@outlook.com>"
+
+RUN apt-get update -y \
+    && apt-get install -y python3-pip pyqt5-dev-tools \
+        gettext python3-pycurl python3-requests \
+    && rm -rf /var/lib/apt/lists/*
