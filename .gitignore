@@ -28,3 +28,4 @@ electrum_sparks/gui/kivy/theming/light.atlas
 packages/
 
 .DS_Store
+*.spec
