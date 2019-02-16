@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: electrum-sparks
-Source: https://github.com/SparksReborn/electrum-sparks/
+Source: https://github.com/sparkspay/electrum-sparks/
 
 Files: *
 Copyright: Electrum Team

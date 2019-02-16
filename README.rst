@@ -52,7 +52,7 @@ Development version
 
 Check out the code from GitHub::
 
-    git clone https://github.com/SparksReborn/electrum-sparks.git
+    git clone https://github.com/sparkspay/electrum-sparks.git
     cd electrum-sparks
 
 Run install (this should install dependencies)::

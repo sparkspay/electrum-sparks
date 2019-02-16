@@ -143,6 +143,6 @@ mkdir -p $WINEPREFIX/drive_c/tmp
 cp secp256k1/libsecp256k1.dll $WINEPREFIX/drive_c/tmp/
 
 mkdir -p $WINEPREFIX/drive_c/tmp
-cp neoscrypt_module/neoscrypt.dll $WINEPREFIX/drive_c/tmp/
+cp python-neoscrypt/neoscrypt.dll $WINEPREFIX/drive_c/tmp/
 
 echo "Wine is configured."

@@ -13,8 +13,8 @@ export PYTHONHASHSEED=22
 PYHOME=c:/python$PYTHON_VERSION
 PYTHON="wine $PYHOME/python.exe -OO -B"
 
-# download electrum-sparks from github https://github.com/SparksReborn/electrum-sparks.git
-git clone https://github.com/SparksReborn/electrum-sparks.git $WINEPREFIX/drive_c/electrum-sparks
+# download electrum-sparks from github https://github.com/sparkspay/electrum-sparks.git
+git clone https://github.com/sparkspay/electrum-sparks.git $WINEPREFIX/drive_c/electrum-sparks
 cd electrum-sparks
 git pull
 

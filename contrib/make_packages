@@ -9,7 +9,7 @@ if [ $? -ne 0 ] ; then echo "Install pip3" ; exit ; fi
 rm "$contrib"/../packages/ -r
 
 #Install pure python modules in electrum directory
-#pip3 install https://github.com/SparksReborn/neoscrypt_module/archive/v1.2.tar.gz -t $contrib/../packages
-pip3 install --index-url https://test.pypi.org/simple/ neoscrypt
+#pip3 install https://github.com/sparkspay/neoscrypt_module/archive/v1.2.tar.gz -t $contrib/../packages
+pip3 install neoscrypt
 pip3 install -r $contrib/deterministic-build/requirements.txt -t $contrib/../packages
 

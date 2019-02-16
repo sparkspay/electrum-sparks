@@ -6,7 +6,7 @@ if [[ -z $TRAVIS_TAG ]]; then
   exit 1
 fi
 
-BUILD_REPO_URL=https://github.com/SparksReborn/electrum-sparks.git
+BUILD_REPO_URL=https://github.com/sparkspay/electrum-sparks.git
 
 cd build
 

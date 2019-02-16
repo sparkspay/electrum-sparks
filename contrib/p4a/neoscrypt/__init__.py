@@ -2,7 +2,7 @@ from pythonforandroid.recipe import CythonRecipe
 
 
 class NeoscryptRecipe(CythonRecipe):
-    url = 'git+https://github.com/SparksReborn/neoscrypt_module.git'
+    url = 'git+https://github.com/sparkspay/python-neoscrypt.git'
     version = 'master'
 
     name = 'neoscrypt'

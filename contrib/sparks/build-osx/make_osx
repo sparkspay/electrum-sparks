@@ -4,7 +4,7 @@
 PYTHON_VERSION=3.6.4
 BUILDDIR=/tmp/electrum-build
 PACKAGE=Electrum-Sparks
-GIT_REPO=https://github.com/SparksReborn/electrum-sparks
+GIT_REPO=https://github.com/sparkspay/electrum-sparks
 LIBSECP_VERSION=452d8e4d2a2f9f1b5be6b02e18f1ba102e5ca0b4
 
 . $(dirname "$0")/base.sh
@@ -67,11 +67,11 @@ popd
 cp $BUILDDIR/secp256k1/.libs/libsecp256k1.0.dylib contrib/sparks/build-osx
 
 info "Building neoscrypt"
-git clone https://github.com/SparksReborn/neoscrypt_module $BUILDDIR/neoscrypt_module
-pushd $BUILDDIR/neoscrypt_module
+git clone https://github.com/sparkspay/python-neoscrypt $BUILDDIR/python-neoscrypt
+pushd $BUILDDIR/python-neoscrypt
 ./build_osx.sh
 popd
-cp $BUILDDIR/neoscrypt_module/neoscrypt.dylib contrib/sparks/build-osx
+cp $BUILDDIR/python-neoscrypt/neoscrypt.dylib contrib/sparks/build-osx
 
 
 info "Installing requirements..."

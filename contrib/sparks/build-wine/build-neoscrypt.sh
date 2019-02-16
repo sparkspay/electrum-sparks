@@ -6,23 +6,18 @@ set -e
 
 build_dll() {
     #sudo apt-get install -y mingw-w64
-    DEFINES="-DNEOSCRYPT_ASM -DNEOSCRYPT_OPT -DNEOSCRYPT_MINER_4WAY -DNEOSCRYPT_SHA256"
+    DEFINES="-DNEOSCRYPT_OPT -DNEOSCRYPT_MINER_4WAY -DNEOSCRYPT_SHA256"
     CFLAGS="-Wall -O2 -fomit-frame-pointer -fno-stack-protector"
     LD="$1-gcc"
     CC="$1-gcc"
     LDFLAGS="-shared -W -static-libgcc -static-libstdc++ "
 
     echo "$CC $CFLAGS $DEFINES -c neoscrypt.c"
-    `$CC $CFLAGS $DEFINES -c neoscrypt.c`
+    `$CC $CFLAGS $DEFINES -c src/neoscrypt.c`
 
-    echo "$CC $CFLAGS $DEFINES -c neoscrypt_test.c"
-    `$CC $CFLAGS $DEFINES -c neoscrypt_test.c`
 
-    echo "$CC $DEFINES -c neoscrypt_asm.S"
-    `$CC $DEFINES -c neoscrypt_asm.S`
-
-    echo "$LD $LDFLAGS -o neoscrypt neoscrypt.o neoscrypt_test.o neoscrypt_asm.o"
-    `$LD $LDFLAGS -o neoscrypt-0.dll neoscrypt.o neoscrypt_test.o neoscrypt_asm.o`
+    echo "$LD $LDFLAGS -o neoscrypt neoscrypt.o"
+    `$LD $LDFLAGS -o neoscrypt-0.dll neoscrypt.o`
 
 
     ${1}-strip neoscrypt-0.dll
@@ -31,11 +26,11 @@ build_dll() {
 
 cd /tmp/electrum_sparks-build
 
-if [ ! -d neoscrypt_module ]; then
-    pip install --index-url https://test.pypi.org/simple/ neoscrypt
-    cd neoscrypt_module;
+if [ ! -d python-neoscrypt ]; then
+    git clone https://github.com/sparkspay/python-neoscrypt.git
+    cd python-neoscrypt;
 else
-    cd neoscrypt_module
+    cd python-neoscrypt
     git pull
 fi
 

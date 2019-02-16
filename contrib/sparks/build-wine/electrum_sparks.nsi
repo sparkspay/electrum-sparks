@@ -7,7 +7,7 @@
 ;Variables
 
   !define PRODUCT_NAME "Electrum-Sparks"
-  !define PRODUCT_WEB_SITE "https://github.com/SparksReborn/electrum-sparks"
+  !define PRODUCT_WEB_SITE "https://github.com/sparkspay/electrum-sparks"
   !define PRODUCT_PUBLISHER "Electrum Technologies GmbH"
   !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 
