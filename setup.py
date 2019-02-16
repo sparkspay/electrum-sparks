@@ -27,6 +27,9 @@ if sys.version_info[:3] < (3, 4, 0):
 data_files = []
 
 if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
+    # add python-neoscrypt
+    requirements = requirements+['neoscrypt']
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--root=', dest='root_path', metavar='dir', default='/')
     opts, _ = parser.parse_known_args(sys.argv[1:])
@@ -110,14 +113,13 @@ setup(
             'locale/*/LC_MESSAGES/electrum.mo',
         ],
     },
-    #scripts=['electrum-sparks/electrum-sparks'],
     scripts=['electrum-sparks'],
     data_files=data_files,
     description="Lightweight Sparkspay Wallet",
-    maintainer="akhavr",
-    maintainer_email="akhavr@khavr.com",
+    maintainer="m0r4k",
+    maintainer_email="m0r4k@outlook.com",
     license="MIT License",
-    url="https://electrum.sparkscoin.io",
+    url="https://github.com/sparkspay/electrum-sparks",
     long_description="""Lightweight Sparkspay Wallet""",
     cmdclass={
 #        'install': CustomInstallCommand,

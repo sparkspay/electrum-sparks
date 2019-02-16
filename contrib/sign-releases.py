@@ -14,7 +14,7 @@ NOTE on apk signing: To create a keystore and sign the apk you need to install
 To create a keystore run the following command:
 
     mkdir ~/.jks && keytool -genkey -v -keystore ~/.jks/keystore \
-        -alias electrum.sparkscoin.io -keyalg RSA -keysize 2048 \
+        -alias electrum.sparkspay.io -keyalg RSA -keysize 2048 \
         -validity 10000
 
 Then it shows a warning about the proprietary format and a command to migrate:
@@ -30,7 +30,7 @@ Manual signing:
         -sigfile sparks-electrum \
         -keystore ~/.jks/keystore \
         Sparks_Electrum-3.0.6.1-release-unsigned.apk \
-        electrum.sparkscoin.io
+        electrum.sparkspay.io
 
 Zipalign from Android SDK build tools is also required (set path to bin in
 settings file or with key -z). To install:
@@ -156,7 +156,7 @@ LP_ARCHIVES_TEMPLATE = '%s/~{user}/+archive/ubuntu/{ppa}' % LP_API_URL
 
 # sing_apk related definitions
 JKS_KEYSTORE = os.path.join(HOME_DIR, '.jks/keystore')
-JKS_ALIAS = 'electrum.sparkscoin.io'
+JKS_ALIAS = 'electrum.sparkspay.io'
 JKS_STOREPASS = 'JKS_STOREPASS'
 JKS_KEYPASS = 'JKS_KEYPASS'
 KEYTOOL_ARGS = ['keytool', '-list', '-storepass:env', JKS_STOREPASS]

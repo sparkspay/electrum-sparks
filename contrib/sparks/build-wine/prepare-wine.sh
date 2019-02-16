@@ -127,6 +127,7 @@ wine "$PWD/$ZBAR_FILENAME" /S
 # Upgrade setuptools (so Electrum can be installed later)
 $PYTHON -m pip install setuptools --upgrade
 
+
 # Install NSIS installer
 download_if_not_exist $NSIS_FILENAME "$NSIS_URL"
 verify_hash $NSIS_FILENAME "$NSIS_SHA256"

@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-LABEL maintainer "Andriy Khavryuchenko <akhavr@khavr.com>"
+LABEL maintainer "z3r0 m0r4k <m0r4k@outlook.com>"
 
 RUN dpkg --add-architecture i386 \
     && apt-get update \

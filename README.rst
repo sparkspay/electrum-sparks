@@ -6,14 +6,7 @@ Electrum-SPARKS - Lightweight Sparkspay client
   Licence: MIT Licence
   Author: Thomas Voegtlin
   Language: Python
-  Homepage: https://electrum.sparkscoin.io/
-
-
-.. image:: https://travis-ci.org/akhavr/electrum-sparks.svg?branch=master
-    :target: https://travis-ci.org/akhavr/electrum-sparks
-    :alt: Build Status
-
-
+  Homepage: https://github.com/sparkspay/electrum-sparks/releases/
 
 
 
@@ -32,7 +25,7 @@ directory (except neoscrypt).
 
 To install neoscrypt dependency in the 'packages' dir run once by hand::
 
-    sudo python3 ./lib/neoscrypt_module/setup.py install
+    sudo pip install neoscrypt
 
 To run Electrum-SPARKS from its root directory, just do::
 

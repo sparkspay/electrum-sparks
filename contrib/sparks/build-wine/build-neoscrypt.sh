@@ -32,7 +32,7 @@ build_dll() {
 cd /tmp/electrum_sparks-build
 
 if [ ! -d neoscrypt_module ]; then
-    git clone https://github.com/SparksReborn/neoscrypt_module.git
+    pip install --index-url https://test.pypi.org/simple/ neoscrypt
     cd neoscrypt_module;
 else
     cd neoscrypt_module

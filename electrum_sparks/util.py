@@ -592,7 +592,7 @@ def time_difference(distance_in_time, include_seconds):
         return "over %d years" % (round(distance_in_minutes / 525600))
 
 mainnet_block_explorers = {
-    'sparkscoin.io': ('http://explorer.sparkscoin.io/',
+    'insight.sparkspay.io': ('http://insight.sparkspay.io/insight/',
                        {'tx': 'tx/', 'addr': 'address/'}),
     'sparkspay.io': ('http://explorer.sparkspay.io/',
                        {'tx': 'tx/', 'addr': 'addr/'}),
