@@ -17,7 +17,7 @@ from .masternode_budget_widgets import *
 from . import util
 
 # Background color for enabled masternodes.
-ENABLED_MASTERNODE_BG = '#80ff80'
+ENABLED_MASTERNODE_BG = '#86C764'  #'#80ff80'
 
 class MasternodesModel(QAbstractTableModel):
     """Model for masternodes."""
