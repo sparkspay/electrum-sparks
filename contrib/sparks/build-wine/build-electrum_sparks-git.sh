@@ -14,9 +14,12 @@ PYHOME=c:/python$PYTHON_VERSION
 PYTHON="wine $PYHOME/python.exe -OO -B"
 
 # download electrum-sparks from github https://github.com/sparkspay/electrum-sparks.git
-git clone https://github.com/sparkspay/electrum-sparks.git $WINEPREFIX/drive_c/electrum-sparks
-cd electrum-sparks
-git pull
+if [ ! -d "$WINEPREFIX/drive_c/electrum-sparks" ] ; then
+    git clone https://github.com/sparkspay/electrum-sparks.git $WINEPREFIX/drive_c/electrum-sparks
+fi
+
+cd $WINEPREFIX/drive_c/electrum-sparks
+git pull --force
 
 # Let's begin!
 cd `dirname $0`
@@ -34,8 +37,8 @@ git submodule update
 
 
 
-# VERSION=`git describe --tags --dirty --always`
-VERSION=`git describe --tags`
+#VERSION=`git describe --tags --dirty --always`
+VERSION=`git describe --tags --always`
 echo "Last commit: $VERSION"
 
 # create locales
