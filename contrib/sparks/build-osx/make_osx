@@ -68,10 +68,10 @@ cp $BUILDDIR/secp256k1/.libs/libsecp256k1.0.dylib contrib/sparks/build-osx
 
 info "Building neoscrypt"
 git clone https://github.com/sparkspay/python-neoscrypt $BUILDDIR/python-neoscrypt
-pushd $BUILDDIR/python-neoscrypt
+pushd $BUILDDIR/python-neoscrypt/scripts
 ./build_osx.sh
 popd
-cp $BUILDDIR/python-neoscrypt/neoscrypt.dylib contrib/sparks/build-osx
+cp $BUILDDIR/python-neoscrypt/src/neoscrypt.dylib contrib/sparks/build-osx
 
 
 info "Installing requirements..."
