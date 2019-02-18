@@ -14,7 +14,6 @@ from .bitcoin import COIN
 from .i18n import _
 from .util import PrintError, ThreadJob, make_dir
 
-
 # See https://en.wikipedia.org/wiki/ISO_4217
 CCY_PRECISIONS = {'BHD': 3, 'BIF': 0, 'BYR': 0, 'CLF': 4, 'CLP': 0,
                   'CVE': 0, 'DJF': 0, 'GNF': 0, 'IQD': 3, 'ISK': 0,
@@ -24,7 +23,6 @@ CCY_PRECISIONS = {'BHD': 3, 'BIF': 0, 'BYR': 0, 'CLF': 4, 'CLP': 0,
                   'VUV': 0, 'XAF': 0, 'XAU': 4, 'XOF': 0, 'XPF': 0,
                   # Not ISO 4217.
                   'BTC': 8, 'ETH': 8}
-
 
 DEFAULT_EXCHANGE = 'BitcoinAverage'
 DEFAULT_CCY = 'USD'
@@ -41,7 +39,7 @@ class ExchangeBase(PrintError):
     def get_json(self, site, get_string):
         # APIs must have https
         url = ''.join(['https://', site, get_string])
-        response = requests.request('GET', url, headers={'User-Agent' : 'Sparks-Electrum'}, timeout=10)
+        response = requests.request('GET', url, headers={'User-Agent': 'Sparks-Electrum'}, timeout=10)
         return response.json()
 
     def get_csv(self, site, get_string):
@@ -70,7 +68,7 @@ class ExchangeBase(PrintError):
         t.start()
 
     def read_historical_rates(self, ccy, cache_dir):
-        filename = os.path.join(cache_dir, self.name() + '_'+ ccy)
+        filename = os.path.join(cache_dir, self.name() + '_' + ccy)
         if os.path.exists(filename):
             timestamp = os.stat(filename).st_mtime
             try:
@@ -107,7 +105,7 @@ class ExchangeBase(PrintError):
         h = self.history.get(ccy)
         if h is None:
             h = self.read_historical_rates(ccy, cache_dir)
-        if h is None or h['timestamp'] < time.time() - 24*3600:
+        if h is None or h['timestamp'] < time.time() - 24 * 3600:
             t = Thread(target=self.get_historical_rates_safe, args=(ccy, cache_dir))
             t.setDaemon(True)
             t.start()
@@ -120,7 +118,7 @@ class ExchangeBase(PrintError):
 
     def get_currencies(self):
         rates = self.get_rates('')
-        return sorted([str(a) for (a, b) in rates.items() if b is not None and len(a)==3])
+        return sorted([str(a) for (a, b) in rates.items() if b is not None and len(a) == 3])
 
 
 class BitcoinAverage(ExchangeBase):
@@ -130,14 +128,13 @@ class BitcoinAverage(ExchangeBase):
                              '/indices/local/ticker/SPARKS%s' % ccy)
         return {ccy: Decimal(json['last'])}
 
-
     def history_ccys(self):
         return ['USD', 'EUR', 'PLN']
 
     def request_history(self, ccy):
         history = self.get_json('apiv2.bitcoinaverage.com',
-                               "/indices/local/history/SPARKS%s"
-                               "?period=alltime&format=json" % ccy)
+                                "/indices/local/history/SPARKS%s"
+                                "?period=alltime&format=json" % ccy)
         return dict([(h['time'][:10], h['average']) for h in history])
 
 
@@ -153,6 +150,18 @@ class Bittrex(ExchangeBase):
         return quote_currencies
 
 
+class CoinCodex(ExchangeBase):
+    def get_rates(self, ccy):
+        json = self.get_json('coincodex.com',
+                             '/api/coincodex/get_coin/SPK')
+        quote_currencies = {}
+        for ccy, key in [
+            ('USD', 'last_price_usd')
+        ]:
+            quote_currencies[ccy] = Decimal(json[key])
+        return quote_currencies
+
+
 class Poloniex(ExchangeBase):
     def get_rates(self, ccy):
         json = self.get_json('poloniex.com', '/public?command=returnTicker')
@@ -164,7 +173,7 @@ class Poloniex(ExchangeBase):
 
 class CoinMarketCap(ExchangeBase):
     def get_rates(self, ccy):
-        json = self.get_json('api.coinmarketcap.com', '/v1/ticker/sparks/')
+        json = self.get_json('api.coinmarketcap.com', '/v1/ticker/sparkspay/')
         quote_currencies = {}
         if not isinstance(json, list):
             return quote_currencies
@@ -184,6 +193,7 @@ def dictinvert(d):
             keys = inv.setdefault(v, [])
             keys.append(k)
     return inv
+
 
 def get_exchanges_and_currencies():
     import os, json
@@ -259,7 +269,7 @@ class FxThread(ThreadJob):
     def run(self):
         # This runs from the plugins thread which catches exceptions
         if self.is_enabled():
-            if self.timeout ==0 and self.show_history():
+            if self.timeout == 0 and self.show_history():
                 self.exchange.get_historical_rates(self.ccy, self.cache_dir)
             if self.timeout <= time.time():
                 self.timeout = time.time() + 150
@@ -302,7 +312,7 @@ class FxThread(ThreadJob):
     def set_currency(self, ccy):
         self.ccy = ccy
         self.config.set_key('currency', ccy, True)
-        self.timeout = 0 # Because self.ccy changes
+        self.timeout = 0  # Because self.ccy changes
         self.on_quotes()
 
     def set_exchange(self, name):
@@ -341,8 +351,10 @@ class FxThread(ThreadJob):
 
     def get_fiat_status_text(self, btc_balance, base_unit, decimal_point):
         rate = self.exchange_rate()
-        return _("  (No FX rate available)") if rate.is_nan() else " 1 %s~%s %s" % (base_unit,
-            self.value_str(COIN / (10**(8 - decimal_point)), rate), self.ccy)
+        return _("  (No FX rate available)") if rate.is_nan() else " 1 %s ~%s %s" % (base_unit,
+                                                                                    self.value_str(COIN / (10 ** (
+                                                                                            8 - decimal_point)),
+                                                                                                   rate), self.ccy)
 
     def fiat_value(self, satoshis, rate):
         return Decimal('NaN') if satoshis is None else Decimal(satoshis) / COIN * Decimal(rate)
