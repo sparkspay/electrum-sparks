@@ -549,9 +549,10 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         add_toggle_action(view_menu, self.console_tab)
 
         ## MASTERNODE SETTINGS ##
-        if self.config.get('masternode_setup', 'default') == True:
+        if self.config.get('masternode_config', 'enabled') == True:
             wallet_menu.addSeparator()
             wallet_menu.addAction(_("Masternodes"), self.show_masternode_dialog)
+
 
         tools_menu = menubar.addMenu(_("&Tools"))
 
@@ -2858,6 +2859,23 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.need_restart = True
         colortheme_combo.currentIndexChanged.connect(on_colortheme)
         gui_widgets.append((colortheme_label, colortheme_combo))
+
+        ## Masternode CONFIG##
+        masternode_combo = QComboBox()
+        masternode_combo.addItem(_('disable'), False)
+        masternode_combo.addItem(_('enable'), True)
+        index = masternode_combo.findData(self.config.get('masternode_config', False))
+        masternode_combo.setCurrentIndex(index)
+        masternode_label = QLabel(_('Masternode Conf') + ':')
+
+        def on_masternode(x):
+            self.config.set_key('masternode_config', masternode_combo.itemData(x), True)
+            self.need_restart = True
+
+        masternode_combo.currentIndexChanged.connect(on_masternode)
+        gui_widgets.append((masternode_label, masternode_combo))
+
+
 
         usechange_cb = QCheckBox(_('Use change addresses'))
         usechange_cb.setChecked(self.wallet.use_change)

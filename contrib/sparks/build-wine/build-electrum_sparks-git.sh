@@ -34,9 +34,6 @@ pushd $WINEPREFIX/drive_c/electrum-sparks
 git submodule init
 git submodule update
 
-
-
-
 #VERSION=`git describe --tags --dirty --always`
 VERSION=`git describe --tags --always`
 echo "Last commit: $VERSION"

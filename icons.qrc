@@ -1,9 +1,8 @@
 <RCC>
   <qresource prefix="/" >
     <file>icons/electrum-sparks.png</file>
-    <file>icons/sparks_col_transparent.png</file>
-    <file>icons/sparks_col_transparent_small.png</file>
-    <file>icons/sparks_white.png</file>
+    <file>icons/sparks_color_transparent.png</file>
+    <file>icons/sparks_white_transparent.png</file>
     <file>icons/clock1.png</file>
     <file>icons/clock2.png</file>
     <file>icons/clock3.png</file>

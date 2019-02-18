@@ -224,6 +224,9 @@ QLabel {
 /* History Container */
 #history_container {
     margin-top: 0;
+    background-image: url(':icons/sparks_white_transparent.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
 }
 
 
@@ -252,13 +255,19 @@ QLabel {
 /* Addressses Container */
 #addresses_container {
     margin-top: 0;
-    background-color: #232629;
+    background: #232629;
+    background-image: url(':icons/sparks_white_transparent.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
 }
 
 
 /* Contacts Container */
 #contacts_container, #utxo_container {
     margin-top: 0;
+    background-image: url(':icons/sparks_white_transparent.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
 }
 
 
@@ -266,7 +275,10 @@ QLabel {
 #console_container {
     margin-top: 0;
     color:#aaa;
-    background-color: #232629;
+    background: #232629;
+    background-image: url(':icons/sparks_white_transparent.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
 }
 
 
@@ -275,6 +287,7 @@ QLabel {
     color:#ffffff;
     font-weight:bold;
     margin-left:10px;
+
 }
 
 
