@@ -12,6 +12,8 @@ from electrum_sparks.util import block_explorer_URL, print_error, format_satoshi
 from .amountedit import BTCAmountEdit
 from . import util
 
+
+
 # Color used when displaying proposals that we created.
 MY_PROPOSAL_COLOR = '#80ff80'
 # Color used when displaying payment addresses that belong to us.

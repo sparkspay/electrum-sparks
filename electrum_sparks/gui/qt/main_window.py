@@ -548,8 +548,10 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         add_toggle_action(view_menu, self.contacts_tab)
         add_toggle_action(view_menu, self.console_tab)
 
-        wallet_menu.addSeparator()
-        wallet_menu.addAction(_("Masternodes"), self.show_masternode_dialog)
+        ## MASTERNODE SETTINGS ##
+        if self.config.get('masternode_setup', 'default') == True:
+            wallet_menu.addSeparator()
+            wallet_menu.addAction(_("Masternodes"), self.show_masternode_dialog)
 
         tools_menu = menubar.addMenu(_("&Tools"))
 
@@ -1832,16 +1834,16 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         return self.create_list_tab(l)
 
     def create_proposals_tab(self):
-        from masternode_budget_widgets import ProposalsTab
+        from . masternode_budget_widgets import ProposalsTab
         self.proposals_list = ProposalsTab(self)
         return self.proposals_list
 
     def update_proposals_tab(self):
         # Disabled until API is stable.
         return
-        if not self.masternode_manager:
-            return
-        self.proposals_list.update(list(self.network.all_proposals))
+
+        #if not self.masternode_manager:
+        #    return self.proposals_list.update(list(self.network.all_proposals))
 
     def remove_address(self, addr):
         if self.question(_("Do you want to remove {} from your wallet?").format(addr)):

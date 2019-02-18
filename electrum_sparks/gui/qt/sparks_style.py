@@ -26,6 +26,7 @@ QWidget { /* Set default style for QWidget, override in following statements */
     border: 0;
     selection-color: #fff;
     selection-background-color: #818181;
+
 }
 
 QGroupBox {
@@ -217,12 +218,16 @@ QLabel {
 #main_window_container {
     background: #FF5555; /* 1e75b4 changeme */
     color: #fff;
+
 }
 
 
 /* History Container */
 #history_container {
     margin-top: 0;
+    background-image: url(':icons/sparks_col_transparent_small.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
 }
 
 
@@ -234,6 +239,7 @@ QLabel {
 #send_container > QLabel {
     margin-left:10px;
     min-width:150px;
+
 }
 
 
@@ -252,12 +258,20 @@ QLabel {
 #addresses_container {
     margin-top: 0;
     background:qradialgradient(cx:0.5, cy:0.5, radius: 0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop: 1 rgba(246, 246, 246, 255));
+    background-image: url(':icons/sparks_col_transparent_small.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
+
 }
 
 
 /* Contacts Container */
 #contacts_container, #utxo_container {
     margin-top: 0;
+    background-image: url(':icons/sparks_col_transparent_small.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
+
 }
 
 
@@ -266,6 +280,10 @@ QLabel {
     margin-top: 0;
     color:#818181;
     background:qradialgradient(cx:0.5, cy:0.5, radius: 0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 255, 255), stop: 1 rgba(246, 246, 246, 255));
+    background-image: url(':icons/sparks_col_transparent_small.png')  ;
+    background-position: center center; 
+    background-repeat: no-repeat;
+
 }
 
 
