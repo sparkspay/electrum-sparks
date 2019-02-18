@@ -1,3 +1,12 @@
+# Release 3.2.4.1 (Masternode Menu enable/disable)
+
+ * Masternode menu item is disabled by default
+ * Preference option added to enable Masternode menu item
+ * Template redesigned
+ * Fix exchange_rate.py for SPK (CMC)
+ * Add exchange_rate.py FX Coincodex
+ * Use of Protocol Verison 1.4
+
 # Release 3.2.4 (Security update)
 
  * backport anti-phishing measures from master
