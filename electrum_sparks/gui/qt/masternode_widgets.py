@@ -19,7 +19,7 @@ def masternode_status(status):
     statuses = {
         'PRE_ENABLED': (True, _('Enabling'), _('Waiting for masternode to enable itself.')),
         'ENABLED': (True, _('Enabled'), _('Masternode is enabled.')),
-        'WATCHDOG_EXPIRED': (True, _('Enabled'), _('Masternode is enabled but sentinel is not running.')),
+        'SENTINEL_PING_EXPIRED': (True, _('Enabled'), _('Masternode is enabled but sentinel is not running.')),
         'EXPIRED': (False, _('Disabled'), _('Masternode failed to ping the network and was disabled.')),
         'VIN_SPENT': (False, _('Disabled'), _('Collateral payment has been spent.')),
         'REMOVE': (False, _('Disabled'), _('Masternode failed to ping the network and was disabled.')),

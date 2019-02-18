@@ -58,7 +58,7 @@ class NetworkAddress(object):
 class MasternodePing(object):
     """A masternode ping message."""
     @classmethod
-    def deserialize(cls, vds, protocol_version=70208):
+    def deserialize(cls, vds, protocol_version=70210):
         if protocol_version <= 70208:
             vin = parse_input(vds, full_parse=True)
         else:

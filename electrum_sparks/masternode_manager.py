@@ -223,7 +223,7 @@ class MasternodeManager(object):
         if mn.announced:
             status = self.masternode_statuses.get(mn.get_collateral_str())
             ### SPARKS ###
-            if status in ['PRE_ENABLED', 'ENABLED', 'WATCHDOG_EXPIRED']:
+            if status in ['PRE_ENABLED', 'ENABLED', 'SENTINEL_PING_EXPIRED']:
                 raise Exception('Masternode has already been activated')
 
     def save(self):
@@ -396,7 +396,7 @@ class MasternodeManager(object):
             raise Exception('Masternode has not been activated')
         else:
             status = self.masternode_statuses.get(mn.get_collateral_str())
-            if status not in ['PRE_ENABLED', 'ENABLED', 'WATCHDOG_EXPIRED']:
+            if status not in ['PRE_ENABLED', 'ENABLED', 'SENTINEL_PING_EXPIRED']:
                 raise Exception('Masternode is not currently enabled')
 
     def vote(self, alias, proposal_name, vote_choice):

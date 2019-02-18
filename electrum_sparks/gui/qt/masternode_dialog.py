@@ -21,13 +21,13 @@ ENABLED_MASTERNODE_BG = '#86C764'  #'#80ff80'
 
 class MasternodesModel(QAbstractTableModel):
     """Model for masternodes."""
-    ALIAS = 0
-    STATUS = 1
-    VIN = 2
-    COLLATERAL = 3
-    DELEGATE = 4
-    ADDR = 5
-    PROTOCOL_VERSION = 6
+    ALIAS = 0               # Alias
+    STATUS = 1              # Status
+    VIN = 2                 # Collateral
+    COLLATERAL = 3          # Collateral Key
+    DELEGATE = 4            # Delegate Key
+    ADDR = 5                # Address
+    PROTOCOL_VERSION = 6    # Version
     TOTAL_FIELDS = 7
 
 
@@ -204,11 +204,15 @@ class MasternodesWidget(QWidget):
         for header in [self.view.horizontalHeader(), self.view.verticalHeader()]:
             header.setHighlightSections(False)
 
+
         header = self.view.horizontalHeader()
-        header.setSectionResizeMode(MasternodesModel.ALIAS, QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(MasternodesModel.VIN, QHeaderView.Stretch)
-        header.setSectionResizeMode(MasternodesModel.COLLATERAL, QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(MasternodesModel.DELEGATE, QHeaderView.ResizeToContents)
+        #header.setSectionResizeMode(MasternodesModel.STATUS, QHeaderView.ResizeToContents)
+        #header.setSectionResizeMode(MasternodesModel.VIN, QHeaderView.Stretch)
+        #header.setSectionResizeMode(MasternodesModel.ALIAS, QHeaderView.ResizeToContents)
+        #header.setSectionResizeMode(MasternodesModel.ADDR, QHeaderView.ResizeToContents)
+        #header.setSectionResizeMode(MasternodesModel.COLLATERAL, QHeaderView.ResizeToContents)
+        #header.setSectionResizeMode(MasternodesModel.DELEGATE, QHeaderView.ResizeToContents)
+        #header.setSectionResizeMode(MasternodesModel.PROTOCOL_VERSION, QHeaderView.ResizeToContents)
         self.view.verticalHeader().setVisible(False)
 
         self.view.setSelectionMode(QAbstractItemView.SingleSelection)
