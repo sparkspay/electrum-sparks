@@ -4,9 +4,9 @@ Electrum-SPARKS - Lightweight Sparkspay client
 ::
 
   Licence: MIT Licence
-  Author: Thomas Voegtlin
+  Author: mor4k
   Language: Python
-  Homepage: https://www.sparkspay.io
+ 
 
 
 
